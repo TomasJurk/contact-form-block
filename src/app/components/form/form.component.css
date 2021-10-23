@@ -1,0 +1,137 @@
+header {
+  margin-bottom: 44px;
+}
+
+.section_form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.form-field:last-child {
+  margin-bottom: 28px;
+}
+
+.form-field input,
+.form-field textarea,
+.section_form button {
+  width: 383px;
+  max-width: 98vw;
+  border-radius: 3px;
+}
+
+.alert-message {
+  padding: 2px 0 0 10px;
+  color: #FF7352;
+  font-size: 12px;
+}
+
+
+/* Input modifiers */
+
+.form-field > input {
+  padding: 11px 10px 7px 10px;
+  border: 1px solid #c1c1c1;
+}
+.form-field > textarea {
+  height: 80px;
+  padding: 11px 10px;
+  border: 1px solid #c1c1c1;
+}
+.form-field > input:focus,
+.form-field > textarea:focus {
+  border-color: #1F69E5;
+}
+.field-hasError > input,
+.field-hasError > textarea,
+.field-hasError > input:focus,
+.field-hasError > textarea:focus {
+  border-color: #FF7352;
+}
+
+
+/* Input label modifiers */
+
+.form-field > label {
+  position: absolute;
+  color: #767676;
+  left: 10px;
+  top: 11px;
+  font-size: 16px;
+  pointer-events: none;
+  transition: .2s;
+  background-color: white;
+}
+.form-field > input:focus~label,
+.form-field > textarea:focus~label {
+  top: -6px;
+  font-size: 11px;
+  padding: 0 5px;
+  color: #1F69E5;
+}
+.field-dirty > label {
+  top: -6px;
+  font-size: 11px;
+  padding: 0 5px;
+}
+.field-hasError > label,
+.field-hasError > input:focus~label,
+.field-hasError > textarea:focus~label {
+  color: #FF7352;
+}
+
+
+/* Button modifiers */
+
+.section_form button {
+  position: relative;
+  height: 40px;
+  border: none;
+  background-color: #1f69e5;
+  box-shadow: 2px 2px 0px #6b96ff;
+  color: white;
+  font-size: 18px;
+}
+.section_form button:hover {
+  background-color: #ffffff;
+  border: 1px solid #1f69e5;
+  color: #1f69e5;
+  box-shadow: 2px 2px 0px #6b96ff;
+}
+.section_form button:active {
+    box-shadow: none;
+}
+.section_form button:disabled {
+  color: #ffffff;
+  background-color: #C1C1C1;
+  box-shadow: none;
+  border: none;
+}
+.section_form .button-submitted,
+.section_form .button-submitted:hover {
+  background-color: transparent;
+  border: 1px solid #1F69E5;
+  box-shadow: none;
+}
+.section_form .spinner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url("../../../assets/icons/spinner.svg") center center no-repeat;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  animation: 2s linear infinite spin;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

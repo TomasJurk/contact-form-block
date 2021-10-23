@@ -1,0 +1,29 @@
+<header>
+  <h1>Products</h1>
+</header>
+<nav>
+  <button
+    class="btn btn-payments"
+    [ngClass]="{ 'btn-selected': currentTab.payments }"
+    (click)="onSelectTab('payments')"
+  >
+    <app-svg-payments [selected]="currentTab.payments"></app-svg-payments>
+  </button>
+  <button
+    class="btn btn-accountData"
+    [ngClass]="{ 'btn-selected': currentTab.accData }"
+    (click)="onSelectTab('accData')"
+  >
+    <app-svg-account-data
+      [selected]="currentTab.accData"
+    ></app-svg-account-data>
+  </button>
+</nav>
+<main>
+  <div *ngIf="currentTab.payments">
+    <app-product-payments></app-product-payments>
+  </div>
+  <div *ngIf="currentTab.accData">
+    <app-product-account-data></app-product-account-data>
+  </div>
+</main>

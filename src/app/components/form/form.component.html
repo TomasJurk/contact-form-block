@@ -1,0 +1,32 @@
+<div class="section_form">
+    <header>
+        <h1>Get in touch</h1>
+    </header>
+    <form  [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-field" [ngClass]="{'field-dirty': contactForm.value.fullName, 'field-hasError': formErrors.fullName}">
+            <input type="text" formControlName="fullName">
+            <label for="fullName">Your name</label>
+            <div class="alert-message" *ngIf="formErrors.fullName">
+                {{ formErrors.fullName }}
+            </div>
+        </div>
+        <div class="form-field" [ngClass]="{'field-dirty': contactForm.value.email, 'field-hasError': formErrors.email}">
+            <input type="email" formControlName="email">
+            <label [ngClass]="{'field-dirty-label': contactForm.value.email}" for="email">Your e-mail</label>
+            <div class="alert-message" *ngIf="formErrors.email">
+                {{ formErrors.email }}
+            </div>
+        </div>
+        <div class="form-field" [ngClass]="{'field-dirty': contactForm.value.message, 'field-hasError': formErrors.message}">
+            <textarea formControlName="message" ></textarea>
+            <label [ngClass]="{'field-dirty-label': contactForm.value.message}" for="message">What's up?</label>
+            <div class="alert-message" *ngIf="formErrors.message">
+                {{ formErrors.message }}
+            </div>
+        </div>
+        <button type="submit" [ngClass]="{'button-submitted': loading}" [disabled]="!contactForm.valid">
+            <span class="spinner" *ngIf="loading"></span>
+            <span *ngIf="!loading">Send</span>
+        </button>
+    </form>
+</div>
