@@ -16,17 +16,24 @@ export class FormComponent implements OnInit {
   loading: boolean = false;
 
   contactForm: FormGroup = this.formBuilder.group({
-    fullName: ['', [Validators.required, Validators.minLength(2)]],
+    fullName: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.pattern('[A-zÀ-ž ]*')
+      ],
+    ],
     email: [
       '',
       [
         Validators.required,
         Validators.pattern(
           '[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}'
-        ),
+        )
       ],
     ],
-    message: ['', [Validators.required, Validators.maxLength(300)]],
+    message: ['', [Validators.required, Validators.minLength(50)]],
   });
 
   formErrors: FormErrors = {
@@ -37,16 +44,17 @@ export class FormComponent implements OnInit {
 
   validationMessage: ValidationMessages = {
     fullName: {
-      required: 'Name is required',
+      required: 'Name is required.',
       minlength: 'Name must be at least 2 characters long.',
+      pattern: 'Name can contain only letters.',
     },
     email: {
-      required: 'Email is required',
-      pattern: 'Email must be valid',
+      required: 'Email is required.',
+      pattern: 'Email must be valid.',
     },
     message: {
-      required: 'Password is required',
-      maxlength: 'Password cannot be more than 300 characters long.',
+      required: 'Message is required.',
+      minlength: 'Message must be at least 50 characters long.',
     },
   };
 

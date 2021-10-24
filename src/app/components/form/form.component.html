@@ -2,7 +2,7 @@
     <header>
         <h1>Get in touch</h1>
     </header>
-    <form  [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <form id="contactUserForm" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="form-field" [ngClass]="{'field-dirty': contactForm.value.fullName, 'field-hasError': formErrors.fullName}">
             <input type="text" formControlName="fullName">
             <label for="fullName">Your name</label>

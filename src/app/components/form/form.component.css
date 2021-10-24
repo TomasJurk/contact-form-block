@@ -22,6 +22,11 @@ header {
   width: 383px;
   max-width: 98vw;
   border-radius: 3px;
+  background-color: #ffffff;
+}
+
+.form-field textarea {
+  display: block;
 }
 
 .alert-message {
@@ -32,7 +37,6 @@ header {
 
 
 /* Input modifiers */
-
 .form-field > input {
   padding: 11px 10px 7px 10px;
   border: 1px solid #c1c1c1;
@@ -43,19 +47,23 @@ header {
   border: 1px solid #c1c1c1;
 }
 .form-field > input:focus,
-.form-field > textarea:focus {
+.form-field > textarea:focus,
+.form-field > input:hover,
+.form-field > textarea:hover {
   border-color: #1F69E5;
 }
 .field-hasError > input,
 .field-hasError > textarea,
 .field-hasError > input:focus,
-.field-hasError > textarea:focus {
+.field-hasError > textarea:focus,
+.field-hasError > input:hover,
+.field-hasError > textarea:hover  {
   border-color: #FF7352;
+  color: #FF7352;
 }
 
 
 /* Input label modifiers */
-
 .form-field > label {
   position: absolute;
   color: #767676;
@@ -86,7 +94,6 @@ header {
 
 
 /* Button modifiers */
-
 .section_form button {
   position: relative;
   height: 40px;

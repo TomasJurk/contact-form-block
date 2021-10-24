@@ -9,6 +9,7 @@ import { ProductPaymentsComponent } from './components/products/product-payments
 import { ProductAccountDataComponent } from './components/products/product-account-data/product-account-data.component';
 import { SvgPaymentsComponent } from './components/icon-components/svg-payments/svg-payments.component';
 import { SvgAccountDataComponent } from './components/icon-components/svg-account-data/svg-account-data.component';
+import { LivingBackgroundComponent } from './components/living-background/living-background.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SvgAccountDataComponent } from './components/icon-components/svg-accoun
     ProductPaymentsComponent,
     ProductAccountDataComponent,
     SvgPaymentsComponent,
-    SvgAccountDataComponent
+    SvgAccountDataComponent,
+    LivingBackgroundComponent
   ],
   imports: [
     FormsModule,
