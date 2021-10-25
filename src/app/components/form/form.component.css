@@ -31,10 +31,9 @@ header {
 
 .alert-message {
   padding: 2px 0 0 10px;
-  color: #FF7352;
+  color: #ff7352;
   font-size: 12px;
 }
-
 
 /* Input modifiers */
 .form-field > input {
@@ -50,18 +49,23 @@ header {
 .form-field > textarea:focus,
 .form-field > input:hover,
 .form-field > textarea:hover {
-  border-color: #1F69E5;
+  border-color: #1f69e5;
 }
 .field-hasError > input,
 .field-hasError > textarea,
 .field-hasError > input:focus,
 .field-hasError > textarea:focus,
 .field-hasError > input:hover,
-.field-hasError > textarea:hover  {
-  border-color: #FF7352;
-  color: #FF7352;
+.field-hasError > textarea:hover {
+  border-color: #ff7352;
+  color: #ff7352;
 }
 
+.form-field > input:disabled,
+.form-field > textarea:disabled {
+  border-color: #C1C1C1;
+  color: #767676;
+}
 
 /* Input label modifiers */
 .form-field > label {
@@ -71,15 +75,15 @@ header {
   top: 11px;
   font-size: 16px;
   pointer-events: none;
-  transition: .2s;
+  transition: 0.2s;
   background-color: white;
 }
-.form-field > input:focus~label,
-.form-field > textarea:focus~label {
+.form-field > input:focus ~ label,
+.form-field > textarea:focus ~ label {
   top: -6px;
   font-size: 11px;
   padding: 0 5px;
-  color: #1F69E5;
+  color: #1f69e5;
 }
 .field-dirty > label {
   top: -6px;
@@ -87,11 +91,10 @@ header {
   padding: 0 5px;
 }
 .field-hasError > label,
-.field-hasError > input:focus~label,
-.field-hasError > textarea:focus~label {
-  color: #FF7352;
+.field-hasError > input:focus ~ label,
+.field-hasError > textarea:focus ~ label {
+  color: #ff7352;
 }
-
 
 /* Button modifiers */
 .section_form button {
@@ -102,6 +105,7 @@ header {
   box-shadow: 2px 2px 0px #6b96ff;
   color: white;
   font-size: 18px;
+  cursor: pointer;
 }
 .section_form button:hover {
   background-color: #ffffff;
@@ -110,18 +114,19 @@ header {
   box-shadow: 2px 2px 0px #6b96ff;
 }
 .section_form button:active {
-    box-shadow: none;
+  box-shadow: none;
 }
 .section_form button:disabled {
   color: #ffffff;
-  background-color: #C1C1C1;
+  background-color: #c1c1c1;
   box-shadow: none;
   border: none;
+  cursor: unset;
 }
 .section_form .button-submitted,
 .section_form .button-submitted:hover {
   background-color: transparent;
-  border: 1px solid #1F69E5;
+  border: 1px solid #1f69e5;
   box-shadow: none;
 }
 .section_form .spinner {

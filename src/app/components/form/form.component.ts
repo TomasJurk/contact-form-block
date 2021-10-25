@@ -15,26 +15,7 @@ type ValidationMessages = {
 export class FormComponent implements OnInit {
   loading: boolean = false;
 
-  contactForm: FormGroup = this.formBuilder.group({
-    fullName: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(2),
-        Validators.pattern('[A-zÀ-ž ]*')
-      ],
-    ],
-    email: [
-      '',
-      [
-        Validators.required,
-        Validators.pattern(
-          '[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}'
-        )
-      ],
-    ],
-    message: ['', [Validators.required, Validators.minLength(50)]],
-  });
+  contactForm: FormGroup = {} as FormGroup;
 
   formErrors: FormErrors = {
     fullName: '',
@@ -61,19 +42,58 @@ export class FormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    this.contactForm.valueChanges.subscribe(() => this.onValueChanged());
-    this.onValueChanged();
+    this.buildForm();
   }
 
   onSubmit() {
     this.loading = true;
+    this.disableForm();
 
     // dummy waiting time
     setTimeout(() => {
       this.loading = false;
+      this.enableForm();
       this.contactForm.reset();
     }, 2000);
+    
     console.log(this.contactForm.value);
+  }
+
+  disableForm(): void {
+    for (const field in this.contactForm.controls) {
+      this.contactForm.controls[field].disable();
+    }
+  }
+
+  enableForm(): void {
+    for (const field in this.contactForm.controls) {
+      this.contactForm.controls[field].enable();
+    }
+  }
+
+  buildForm(): void {
+    this.contactForm = this.formBuilder.group({
+      fullName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.pattern('[A-zÀ-ž ]*'),
+        ],
+      ],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}'
+          ),
+        ],
+      ],
+      message: ['', [Validators.required, Validators.minLength(50)]],
+    });
+    this.contactForm.valueChanges.subscribe(() => this.onValueChanged());
+    this.onValueChanged();
   }
 
   onValueChanged() {

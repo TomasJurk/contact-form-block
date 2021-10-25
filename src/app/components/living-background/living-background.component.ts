@@ -1,25 +1,26 @@
-import { Component, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 
 type Coordinates = {
   [key: string]: number;
-}
+};
 
 @Component({
   selector: 'app-living-background',
   templateUrl: './living-background.component.html',
-  styleUrls: ['./living-background.component.css']
+  styleUrls: ['./living-background.component.css'],
 })
-
-export class LivingBackgroundComponent implements AfterViewChecked {
+export class LivingBackgroundComponent implements OnInit, AfterContentInit {
   contactuserForm: HTMLElement | null = null;
 
-  smallSquareCoords: Coordinates = {} as Coordinates;
-  bigSquareCoords: Coordinates = {} as Coordinates;
-  bubble: Coordinates = {} as Coordinates;
+  smallSquareCoords: Coordinates = { x: 0, y: 0 };
+  bigSquareCoords: Coordinates = { x: 0, y: 0 };
+  bubble: Coordinates = { x: 0, y: 0 };
 
-  constructor() { }
+  constructor() {}
 
-  ngAfterViewChecked(): void {
+  ngOnInit(): void {}
+
+  ngAfterContentInit(): void {
     this.setItemsCoordinates();
   }
 
@@ -39,5 +40,4 @@ export class LivingBackgroundComponent implements AfterViewChecked {
   onResize(): void {
     this.setItemsCoordinates();
   }
-
 }

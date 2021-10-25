@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FormComponent } from './components/form/form.component';
@@ -20,14 +20,10 @@ import { LivingBackgroundComponent } from './components/living-background/living
     ProductAccountDataComponent,
     SvgPaymentsComponent,
     SvgAccountDataComponent,
-    LivingBackgroundComponent
+    LivingBackgroundComponent,
   ],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserModule
-  ],
+  imports: [FormsModule, ReactiveFormsModule, BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

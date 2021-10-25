@@ -3,7 +3,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 @Component({
   selector: 'app-svg-account-data',
   templateUrl: './svg-account-data.component.html',
-  styleUrls: ['./svg-account-data.component.css']
+  styleUrls: ['./svg-account-data.component.css'],
 })
 export class SvgAccountDataComponent implements OnChanges {
   @Input() selected: boolean = false;
@@ -13,6 +13,4 @@ export class SvgAccountDataComponent implements OnChanges {
   ngOnChanges() {
     this.fillColor = this.selected ? '#fff' : '#202E3D';
   }
-  
-
 }

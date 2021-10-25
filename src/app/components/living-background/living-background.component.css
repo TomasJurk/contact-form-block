@@ -1,8 +1,8 @@
 .small-square,
 .big-square,
 .bubble {
-    position: absolute;
-    z-index: -1;
+  position: absolute;
+  z-index: -1;
 }
 
 .small-square {
@@ -38,26 +38,26 @@
 }
 
 .bubble {
-    width: 211px;
-    height: 211px;
-    background-color: rgba(31, 105, 229, 0.05);
-    border-radius: 50%;
-    animation: 3s linear 1s infinite alternate pulse;
+  width: 211px;
+  height: 211px;
+  background-color: rgba(31, 105, 229, 0.05);
+  border-radius: 50%;
+  animation: 3s linear 1s infinite alternate pulse;
 }
 
 @keyframes pulse {
-    from {
-      background-color: rgba(46, 89, 162, 0.05);
-    }
-    to {
-        background-color: rgba(31, 105, 229, 0.15);
-    }
+  from {
+    background-color: rgba(46, 89, 162, 0.05);
+    transform: scale(0.95);
   }
-
-@media only screen and (max-width: 1098px) {
-    .living-background {
-        display: none;
-    }
-
+  to {
+    background-color: rgba(31, 105, 229, 0.15);
+    transform: scale(1);
+  }
 }
 
+@media only screen and (max-width: 1098px) {
+  .living-background {
+    display: none;
+  }
+}

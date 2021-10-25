@@ -3,27 +3,25 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-  currentTab: {[key: string]: boolean} = {
+  currentTab: { [key: string]: boolean } = {
     payments: true,
-    accData: false
+    accData: false,
   };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSelectTab(selectedTab: string): void {
-    Object.keys(this.currentTab).forEach(tab => {
+    Object.keys(this.currentTab).forEach((tab) => {
       if (tab === selectedTab) {
         this.currentTab[tab] = true;
       } else {
         this.currentTab[tab] = false;
       }
-    })
+    });
   }
-
 }
